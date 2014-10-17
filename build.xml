@@ -1,0 +1,28 @@
+<project name="Trainee Tracking Build" default="validateDeploy" basedir="." xmlns:sf="antlib:com.salesforce">
+
+	<property file="build.properties"/>
+	    <property environment="env"/>
+
+		<target name="validateDeploy">
+			<sf:deploy username="${sf.qa.username}" 
+				pollWaitMillis="99999" 
+				maxPoll="100" 
+				password="${sf.qa.password}" 
+				serverurl="${sf.test.serverurl}" 
+				deployRoot="${app.location.deploy}" 
+				checkOnly="true" 
+				runAllTests="true" 
+				logType="Debugonly"/>
+		</target>
+
+		<target name="deploy">
+			<sf:deploy username="${sf.qa.username}" 
+				pollWaitMillis="99999" 
+				maxPoll="100" 
+				password="${sf.qa.password}" 
+				serverurl="${sf.test.serverurl}" 
+				deployRoot="${app.location.deploy}" 
+				runAllTests="false" 
+				logType="Debugonly"/>
+		</target>
+</project>

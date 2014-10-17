@@ -1,0 +1,2 @@
+<apex:page standardController="Contact" extensions="ContactMessage" action="{!sendMessageToContact}">
+</apex:page>
